@@ -1,0 +1,34 @@
+<div *ngIf="pageShops.length>0 ; else elseBlock">
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-3" *ngFor="let shop of pageShops | paginate: { itemsPerPage:16, currentPage: currentPage }">
+        <div class="card mb-3 box-shadow">
+          <h3 class="card-title pleft">{{shop.name}}</h3>
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 100%; width: 100%; display: block;" src="{{shop.picture}}" data-holder-rendered="true">
+          <div class="card-body">
+            <div class="card-text" style="margin-bottom: 25px;">
+              City: {{ shop.city }} <br>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <button type="button" class="btn btn-danger" (click)='removeShop(shop)'><i class="fa fa-trash"></i> Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="data-pagination" *ngIf="pageShops.length > 0">
+        <div class="paginateHeader">
+          <pagination-controls class="paginate" (pageChange)="currentPage=$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<ng-template #elseBlock><h2>OOPS! No preferred shop!</h2></ng-template>

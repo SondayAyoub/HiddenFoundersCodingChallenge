@@ -1,0 +1,29 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 [ngClass]="{'inactive underlineHover': rgstr, 'active': !rgstr}"> <a (click)="register()">Sign In</a> </h2>
+    <h2 [ngClass]="{'inactive underlineHover': !rgstr, 'active': rgstr}"> <a (click)="register()">Sign Up </a></h2>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form (submit)="mySubmit(fo)" novalidate #fo="ngForm">
+      <input type="email" id="email" class="fadeIn second" name="email" placeholder="email" #userEmail="ngModel" required [(ngModel)]="email">
+      <div *ngIf="userEmail.errors?.required && userEmail.touched" class="alert alert-danger">Email is required</div>
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" #userPassword="ngModel" required [(ngModel)]="password" minlength="6">
+      <div *ngIf="userPassword.errors?.required && userPassword.touched" class="alert alert-danger">Password is required</div>
+      <div *ngIf="userPassword.errors?.minlength && userPassword.touched" class="alert alert-danger">6 caracteres is the min required for a password</div>
+      <input *ngIf="!rgstr" type="submit" class="fadeIn fourth" value="Login">
+      <input *ngIf="rgstr" type="submit" class="fadeIn fourth" value="Register">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>

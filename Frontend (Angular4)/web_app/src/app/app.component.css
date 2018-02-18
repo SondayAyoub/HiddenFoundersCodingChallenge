@@ -1,0 +1,18 @@
+#fullPage {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flash-messages{
+  border-radius: 10px 10px 10px 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 650px;
+  position: relative;
+  padding: 0px;
+  text-align: center;
+  display: block;
+
+}
