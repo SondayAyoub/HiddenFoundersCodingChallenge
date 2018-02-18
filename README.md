@@ -1,7 +1,8 @@
-Web Coding Challenge
+# Web Coding Challenge
+
 Idea of the app is to list shops nearby.
 
-How to use
+# How to use
 There are 2 small parts to successfully running this project.
 
 *For Backend part:
@@ -14,11 +15,11 @@ Open terminal and move to frontend directory then run:
 then run:
 	ng serve
 
-Technologies used:
+# Technologies used:
 Java/Spring :
 Backend : Spring Boot
 Frontend : Angular4 (Typescript/Javascript)
 Database : MongoDB
 
-Questions ?
+# Questions ?
 If you have any questions, contact me via sonday.ayoub@gmail.com
