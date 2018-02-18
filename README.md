@@ -19,8 +19,11 @@ then run:
 
 # Technologies used:
 Java/Spring :
+
 Backend : Spring Boot
+
 Frontend : Angular4 (Typescript/Javascript)
+
 Database : MongoDB
 
 # Questions ?
