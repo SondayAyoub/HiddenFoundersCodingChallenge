@@ -10,9 +10,11 @@ Import project to IDE and run the app.
 
 *For Frontend part:
 Open terminal and move to frontend directory then run:
+
 	npm install
 
 then run:
+
 	ng serve
 
 # Technologies used:
