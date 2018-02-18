@@ -18,7 +18,6 @@ then run:
 	ng serve
 
 # Technologies used:
-Java/Spring :
 
 Backend : Spring Boot
 
