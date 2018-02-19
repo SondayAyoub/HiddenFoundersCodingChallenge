@@ -38,6 +38,7 @@ public class RoleServiceImpl implements RoleService{
 		Role update_role = roleRepository.findOne(role.getId());
 		update_role.setName(role.getName());
 		roleRepository.save(update_role);
+		
 	}
 
 	@Override

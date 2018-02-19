@@ -1,7 +1,6 @@
 package com.HFTest.entities;
 
 import java.io.Serializable;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
@@ -9,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Shops implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -25,7 +23,6 @@ public class Shops implements Serializable {
 	public Shops() {
 		super();
 	}
-
 	public Shops(String name, String picture, String city, String email, Location location) {
 		super();
 		this.name = name;
@@ -34,7 +31,6 @@ public class Shops implements Serializable {
 		this.email = email;
 		this.location = location;
 	}
-
 	public String getId() {
 		return id;
 	}

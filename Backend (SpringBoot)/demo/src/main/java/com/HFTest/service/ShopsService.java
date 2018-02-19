@@ -9,7 +9,6 @@ import com.HFTest.entities.Shops;
 import com.HFTest.entities.User;
 
 public interface ShopsService {
-
 	public void addShop(Shops shop);
 	public Shops getShopsbyId(String shopId);
 	public List<Shops> getShop(String name);

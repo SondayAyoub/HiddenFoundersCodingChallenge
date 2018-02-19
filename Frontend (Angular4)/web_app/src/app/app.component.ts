@@ -12,6 +12,5 @@ export class AppComponent implements OnInit{
   constructor(private http: Http){}
 
   ngOnInit(): void {
-
   }
 }

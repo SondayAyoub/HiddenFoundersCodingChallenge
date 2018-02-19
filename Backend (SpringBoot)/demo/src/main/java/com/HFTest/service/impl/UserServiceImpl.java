@@ -1,7 +1,7 @@
 package com.HFTest.service.impl;
 
-import java.util.Date;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -9,6 +9,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +33,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private ShopsRepository shopsRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
 	public ShopsRepository getShopsRepository() {
@@ -58,9 +62,11 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		if(u == null) {
+			System.out.println("No such user!!");
 			throw new UsernameNotFoundException("No such user "+ email);
 		}
 		else if(u.getRoles().isEmpty()) {
+			System.out.println("User has no authorities!!");
 			throw new UsernameNotFoundException("User "+ email + " has no authorities!");
 		}
 		
@@ -71,7 +77,6 @@ public class UserServiceImpl implements UserService {
 		} catch (UsernameNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 		return u;
 	}
 
@@ -83,6 +88,8 @@ public class UserServiceImpl implements UserService {
 		user.setRoles(user_roles);
 		user.setCreationDate(new Date());
 		user.setFavShops(new HashSet<Shops>());
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+
 		return userRepository.save(user);
 	}
 
@@ -105,7 +112,6 @@ public class UserServiceImpl implements UserService {
 		user_roles.add(r_u);
 		user.setRoles(user_roles);
 		userRepository.save(user);
-		
 	}
 
 	@Override
@@ -131,7 +137,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean assignRoleToUser(Role role, User user) {
 		Role assign_role = roleRepository.findByName(role.getName());
-		
+
 		if(assign_role == null) {
 			return false;
 		}
@@ -163,13 +169,12 @@ public class UserServiceImpl implements UserService {
 
 		assign_user.getFavShops().add(pref_shop);
 		return userRepository.save(assign_user);
-		
 	}
 
 	@Override
 	public User removeShopFromUser(Shops shop, User user) {
 		Shops rem_shop = shopsRepository.findById(shop.getId());
-
+		
 		if(rem_shop == null) {
 			return null;
 		}

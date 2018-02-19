@@ -3,7 +3,6 @@ package com.HFTest.entities;
 import java.io.Serializable;
 
 public class Location implements Serializable{
-
 	private static final long serialVersionUID = 1L;
 	private String type;
 	private double[] coordinates;
@@ -28,6 +27,4 @@ public class Location implements Serializable{
 		this.type = type;
 		this.coordinates = coordinates;
 	}
-	
-	
 }

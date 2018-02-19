@@ -2,9 +2,9 @@
 <div class="album py-5 bg-light">
   <div class="container">
 
-    <div class="row">
-      <div class="col-md-3" *ngFor="let shop of pageShops | paginate: { itemsPerPage:16, currentPage: currentPage }">
-        <div class="card mb-3 box-shadow">
+    <div class="row" style="margin-left: 30px;">
+      <div class="" *ngFor="let shop of pageShops | paginate: { itemsPerPage:16, currentPage: currentPage }">
+        <div class="card mb-12 box-shadow" *ngIf="!shop.disliked" style="margin-right: 60px; width: 100%;">
           <h3 class="card-title pleft">{{shop.name}}</h3>
           <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 100%; width: 100%; display: block;" src="{{shop.picture}}" data-holder-rendered="true">
           <div class="card-body">
@@ -30,4 +30,4 @@
 </div>
 </div>
 
-<ng-template #elseBlock><h2>OOPS! empty database</h2></ng-template>
+<ng-template #elseBlock><h2>OOPS! empty database!</h2></ng-template>

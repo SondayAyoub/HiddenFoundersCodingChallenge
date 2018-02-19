@@ -1,7 +1,6 @@
 package com.HFTest.web;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.Point;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.HFTest.entities.Shops;
 import com.HFTest.service.ShopsService;
 
@@ -29,7 +27,6 @@ public class ShopsRestService {
 	
 	@RequestMapping(value="/nearbyShops", method=RequestMethod.GET)
 	public List<Shops> getNearbyShops(@RequestParam(defaultValue="-6.843299") String p1, @RequestParam(defaultValue="33.970437") String p2) {
-		System.out.println(shopService.getNearbyShops(new Point(Double.valueOf(p1), Double.valueOf(p2))).size());
 		return shopService.getNearbyShops(new Point(Double.valueOf(p1), Double.valueOf(p2)));
 	}
 	

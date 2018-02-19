@@ -47,5 +47,4 @@ public class Permission implements GrantedAuthority {
 	public String toString() {
 		return "Permission [id=" + id + ", name=" + name + "]";
 	}
-
 }

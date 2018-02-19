@@ -47,8 +47,8 @@ public class ShopsServiceImpl implements ShopsService {
 	}
 
 	@Override
-	public boolean deleteShops(String shopIs) {
-		Shops s = getShopsbyId(shopIs);
+	public boolean deleteShops(String shopId) {
+		Shops s = getShopsbyId(shopId);
 		try {
 			if (s != null) {
 				shopsRepository.delete(s);
@@ -56,7 +56,7 @@ public class ShopsServiceImpl implements ShopsService {
 			}else
 				return false; 
 		} catch (Exception e) {
-			System.out.println("User does not exist!");
+			System.out.println("Shop does not exist!");
 			return false;
 		}	
 	}

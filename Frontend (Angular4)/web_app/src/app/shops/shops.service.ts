@@ -13,7 +13,7 @@ export class ShopsService{
   }
 
   favShop(shop){
-    this.currentUser = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body);
+    this.currentUser = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body) ;
 
     return this.http.post('http://localhost:8080/user/assignShop/' + this.currentUser.id, shop)
       .map(res =>{
@@ -23,7 +23,7 @@ export class ShopsService{
       });
   }
   remove(shop){
-    this.currentUser = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body);
+    this.currentUser = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body) ;
 
     return this.http.post('http://localhost:8080/user/removeShop/' + this.currentUser.id, shop)
       .map(res =>{

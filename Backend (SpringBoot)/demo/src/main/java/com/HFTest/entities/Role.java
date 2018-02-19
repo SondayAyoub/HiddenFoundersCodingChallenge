@@ -9,7 +9,6 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Document
 public class Role implements Serializable, GrantedAuthority{
-
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -53,5 +52,4 @@ public class Role implements Serializable, GrantedAuthority{
 	public String toString() {
 		return "Role [id=" + id + ", name=" + name + ", permissions=" + permissions + "]";
 	}
-	
 }

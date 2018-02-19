@@ -18,15 +18,16 @@ export class PreferredShopsComponent implements OnInit {
   ngOnInit() {
       this.currentUser = localStorage.getItem('currentUser');
       this.pageShops = JSON.parse(JSON.parse(this.currentUser)._body).favShops;
+      console.log(JSON.parse(JSON.parse(this.currentUser)._body).favShops);
   }
 
   removeShop(shop){
     this.shopsService.remove(shop).subscribe(data=>{
-      console.log(data.toString());
+      console.log(data);
     }, err=>{
       console.log(err);
     });
-    this._flashMessagesService.show('Shop '+ shop.name +' removed from your preferred shops', {cssClass: 'alert-success', timeout: 6000});
+    this._flashMessagesService.show('Shop '+ shop.name +' removed from preferred shops', {cssClass: 'alert-danger', timeout: 6000});
   }
 
 }

@@ -12,8 +12,7 @@ export class UserService {
     password: ""
   }
 
-  constructor(public http:Http) {
-  }
+  constructor(public http:Http) { }
 
   login(email:string, password:string){
 
