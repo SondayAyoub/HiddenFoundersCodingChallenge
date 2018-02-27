@@ -173,6 +173,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User removeShopFromUser(Shops shop, User user) {
+
 		Shops rem_shop = shopsRepository.findById(shop.getId());
 		
 		if(rem_shop == null) {
@@ -184,7 +185,16 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 		
-		user_rem.getFavShops().remove(rem_shop);
+		Set<Shops> user_favShop = new HashSet<Shops>();
+		user_favShop = user_rem.getFavShops();
+		
+		for(Shops s : user_favShop) {
+			if (s.getId().equals(rem_shop.getId())) {
+				user_favShop.remove(s);
+				break;
+			}
+		}
+		
 		return userRepository.save(user_rem);
 	}
 }

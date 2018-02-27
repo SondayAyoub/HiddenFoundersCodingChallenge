@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopsService } from '../shops/shops.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-preferred-shops',
@@ -27,7 +26,8 @@ export class PreferredShopsComponent implements OnInit {
     }, err=>{
       console.log(err);
     });
-    this._flashMessagesService.show('Shop '+ shop.name +' removed from preferred shops', {cssClass: 'alert-danger', timeout: 6000});
+    this.pageShops.pop(shop);
+    this._flashMessagesService.show('Shop '+ shop.name +' removed from preferred shops', {cssClass: 'alert-warning', timeout: 6000});
   }
 
 }
